@@ -1,0 +1,82 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://c5e7ut0k8ewe8"]
+
+[ext_resource type="FontFile" uid="uid://dv28jev78r0r5" path="res://Orbitron Black.ttf" id="1_b0i2p"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ldsmf"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(1, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_size = 2
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xrkj3"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(1, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_size = 2
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvvye"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(1, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(0.941176, 0, 0.956863, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_size = 2
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwp5r"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(1, 0)
+border_width_left = 6
+border_width_right = 6
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_size = 2
+shadow_offset = Vector2(8, 8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wpdi7"]
+bg_color = Color(0, 0, 0, 1)
+skew = Vector2(1, 0)
+border_width_left = 8
+border_width_right = 8
+border_color = Color(0.815686, 0.0117647, 0.870588, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.337255)
+shadow_size = 2
+shadow_offset = Vector2(4, 4)
+
+[resource]
+default_font = ExtResource("1_b0i2p")
+Button/styles/disabled = SubResource("StyleBoxFlat_ldsmf")
+Button/styles/focus = SubResource("StyleBoxFlat_xrkj3")
+Button/styles/hover = SubResource("StyleBoxFlat_kvvye")
+Button/styles/normal = SubResource("StyleBoxFlat_rwp5r")
+Button/styles/pressed = SubResource("StyleBoxFlat_wpdi7")
+Label/font_sizes/font_size = 45

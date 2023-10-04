@@ -4,6 +4,7 @@ var min_speed = 100.0
 var max_speed = 600.0
 var speed_multiplier = 1.0
 var accelerate = false
+var decay = 0.02
 
 var released = true
 
@@ -18,11 +19,13 @@ func _ready():
 		var level = Levels.levels[Global.level]
 		min_speed *= level["multiplier"]
 		max_speed *= level["multiplier"]
+	$Highlight.modulate.a = 0
 	
 
 func _on_Ball_body_entered(body):
 	if body.has_method("hit"):
 		body.hit(self)
+		$Highlight.modulate.a = 1.0
 		accelerate = true	
 
 func _input(event):
@@ -35,6 +38,10 @@ func _integrate_forces(state):
 		var paddle = get_node_or_null("/root/Game/Paddle_Container/Paddle")
 		if paddle != null:
 			state.transform.origin = Vector2(paddle.position.x, paddle.position.y - 30)	
+	if $Highlight.modulate.a > 0:
+		$Highlight.modulate.a -= decay
+	if released:
+		$Trail.emitting = true
 
 	if position.y > Global.VP.y + 100:
 		die()
@@ -49,7 +56,8 @@ func _integrate_forces(state):
 		state.linear_velocity = state.linear_velocity.normalized() * max_speed * speed_multiplier
 
 func change_size(s):
-	$ColorRect.scale = s
+	$Sprite2D.scale = s
+	$Highlight.scale = s
 	$CollisionShape2D.scale = s
 
 func change_speed(s):

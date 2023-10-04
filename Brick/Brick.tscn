@@ -1,18 +1,50 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjvdmnbj44w6x"]
+[gd_scene load_steps=8 format=3 uid="uid://bjvdmnbj44w6x"]
 
 [ext_resource type="Script" path="res://Brick/Brick.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://cuk1rrncdgu32" path="res://Assets/brick.png" id="2_wmsnw"]
+[ext_resource type="Texture2D" uid="uid://ds0j7hgcw56gm" path="res://Assets/particle.png" id="3_yjkfu"]
 
 [sub_resource type="RectangleShape2D" id="1"]
-size = Vector2(90, 30)
+size = Vector2(96, 32)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jumuf"]
+
+[sub_resource type="Curve" id="Curve_6mxp3"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_4w5ec"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="Brick" type="StaticBody2D"]
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -45.0
-offset_top = -15.0
-offset_right = 45.0
-offset_bottom = 15.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+texture = ExtResource("2_wmsnw")
+
+[node name="Kaboom" type="CPUParticles2D" parent="."]
+texture_filter = 3
+material = SubResource("CanvasItemMaterial_jumuf")
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.7
+texture = ExtResource("3_yjkfu")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 200.0
+angular_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_6mxp3")
+color_ramp = SubResource("Gradient_4w5ec")
+hue_variation_min = -1.0
+hue_variation_max = 1.0

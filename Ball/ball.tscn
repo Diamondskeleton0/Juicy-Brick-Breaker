@@ -1,13 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://dr50duubwf50c"]
+[gd_scene load_steps=9 format=3 uid="uid://dr50duubwf50c"]
 
 [ext_resource type="Script" path="res://Ball/Ball.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://bp3w4n3dt2j1b" path="res://Assets/ball.png" id="2_aamyb"]
+[ext_resource type="Texture2D" uid="uid://duep1x0axgh53" path="res://Assets/ballBlue.png" id="3_y1jop"]
+[ext_resource type="Texture2D" uid="uid://ds0j7hgcw56gm" path="res://Assets/particle.png" id="4_80htf"]
 
 [sub_resource type="PhysicsMaterial" id="2"]
 friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="1"]
-radius = 12.0
+radius = 13.0
+
+[sub_resource type="Curve" id="Curve_h5q6v"]
+_data = [Vector2(0.010989, 0.505263), 0.0, 4.47018, 0, 0, Vector2(0.263736, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.96842, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_sq0x5"]
+colors = PackedColorArray(0.0352941, 0.0470588, 1, 1, 0.741176, 0.0823529, 1, 0)
 
 [node name="Ball" type="RigidBody2D"]
 collision_layer = 0
@@ -15,13 +25,35 @@ physics_material_override = SubResource("2")
 gravity_scale = 0.0
 script = ExtResource("1")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("2_aamyb")
+
+[node name="Highlight" type="Sprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("3_y1jop")
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+texture_filter = 3
+emitting = false
+amount = 12
+lifetime = 0.7
+randomness = 0.3
+texture = ExtResource("4_80htf")
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 100.0
+angular_velocity_max = 100.0
+angle_max = 180.0
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_h5q6v")
+color_ramp = SubResource("Gradient_sq0x5")
 
 [connection signal="body_entered" from="." to="." method="_on_Ball_body_entered"]
