@@ -8,7 +8,7 @@ A completely normal brick breaker with nothing extreme at all :)
 ## Implementation
 
 Particle trail following the ball as it travels, particles for the bricks and paddle as well
-
+Things go bounce, boom, and kablam.
 
 ## References
 
