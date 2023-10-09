@@ -25,6 +25,9 @@ func _input(event):
 		target.x += event.relative.x
 
 func hit(_ball):
+	var paddle_sound = get_node_or_null("/root/Game/Sound_Paddle")
+	if paddle_sound != null:
+		paddle_sound.play()
 	$Highlight.modulate.a = 1.0
 	$Boom.emitting = true
 

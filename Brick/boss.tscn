@@ -1,0 +1,77 @@
+[gd_scene load_steps=11 format=3 uid="uid://bua431838uo87"]
+
+[ext_resource type="Script" path="res://Brick/boss.gd" id="1_k05cs"]
+[ext_resource type="Texture2D" uid="uid://d3br4fijxtt8g" path="res://Assets/boss1.png" id="1_u1rrx"]
+[ext_resource type="Texture2D" uid="uid://dr34bn1tosibf" path="res://Assets/boss2.png" id="2_cipo1"]
+[ext_resource type="Texture2D" uid="uid://dbqouuj5l7iqy" path="res://Assets/boss3.png" id="3_kusew"]
+[ext_resource type="Texture2D" uid="uid://ds0j7hgcw56gm" path="res://Assets/particle.png" id="5_ets3c"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4welc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_u1rrx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cipo1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_kusew")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yv4h"]
+size = Vector2(128, 127)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5qcxq"]
+
+[sub_resource type="Curve" id="Curve_a28g4"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7tojw"]
+colors = PackedColorArray(1, 0.192157, 0.192157, 1, 0.780392, 0.0745098, 0.996078, 0)
+
+[node name="Boss" type="CharacterBody2D"]
+script = ExtResource("1_k05cs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_4welc")
+frame_progress = 0.576565
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1yv4h")
+
+[node name="Kaboom" type="CPUParticles2D" parent="."]
+texture_filter = 3
+material = SubResource("CanvasItemMaterial_5qcxq")
+emitting = false
+amount = 20
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.7
+texture = ExtResource("5_ets3c")
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 50.0
+initial_velocity_max = 500.0
+angular_velocity_max = 100.0
+scale_amount_min = 0.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_a28g4")
+color_ramp = SubResource("Gradient_7tojw")
+hue_variation_min = -1.0
+hue_variation_max = 1.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

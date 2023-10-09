@@ -5,12 +5,13 @@ var levels = [
 		"name":"Level 1",
 		"instructions":"Break all the Bricks",
 		"background":"",
-		"music":"",
-		"sound_paddle":"",
-		"sound_brick":"",
-		"sound_wall":"",
-		"sound_die":"",
+		"music":"res://Assets/orange_2.wav",
+		"sound_paddle":"res://Assets/paddle.wav",
+		"sound_brick":"res://Assets/brick.wav",
+		"sound_wall":"res://Assets/wall.wav",
+		"sound_die":"res://Assets/die.wav",
 		"sound_start":"",
+		"boss":"",
 		"multiplier":1.0,
 		"timer":120,
 		"layout_start":Vector2(125,105),
@@ -40,12 +41,13 @@ var levels = [
 		"name":"Level 2",
 		"instructions":"Keep on brickin'",
 		"background":"",
-		"music":"",
-		"sound_paddle":"",
-		"sound_brick":"",
-		"sound_wall":"",
-		"sound_die":"",
+		"music":"res://Assets/orange_2.wav",
+		"sound_paddle":"res://Assets/paddle.wav",
+		"sound_brick":"res://Assets/brick.wav",
+		"sound_wall":"res://Assets/wall.wav",
+		"sound_die":"res://Assets/die.wav",
 		"sound_start":"",
+		"boss":"",
 		"multiplier":1.2,
 		"timer":100,
 		"layout_start":Vector2(205,105),
@@ -75,12 +77,13 @@ var levels = [
 		"name":"Bonus Round",
 		"instructions":"Break them as quickly as you can!",
 		"background":"",
-		"music":"",
+		"music":"res://Assets/bonus.wav",
 		"sound_paddle":"",
 		"sound_brick":"",
 		"sound_wall":"",
 		"sound_die":"",
 		"sound_start":"",
+		"boss":"",
 		"multiplier":2.0,
 		"timer":30,
 		"layout_start":Vector2(205,105),
@@ -97,6 +100,43 @@ var levels = [
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
 			,[100,100,100,100,100,100,100,100]
+		]
+	}
+	,{
+		"name":"Level 3",
+		"instructions":"A boss?!",
+		"background":"",
+		"music":"res://boss_loop.wav",
+		"sound_paddle":"",
+		"sound_brick":"",
+		"sound_wall":"",
+		"sound_die":"",
+		"sound_start":"",
+		"boss":"boss1",
+		"multiplier":2.0,
+		"timer":150,
+		"layout_start":Vector2(125,105),
+		"layout_spacing":Vector2(100,40),
+		"bricks":{
+			150:"res://Brick/brick2.tscn",
+			100:"res://Brick/Brick.tscn",
+			90:"res://Brick/Brick.tscn",
+			80:"res://Brick/Brick.tscn",
+			70:"res://Brick/Brick.tscn",
+			60:"res://Brick/Brick.tscn",
+			50:"res://Brick/Brick.tscn",
+			40:"res://Brick/Brick.tscn",
+			30:"res://Brick/Brick.tscn",
+		},
+		"layout":[
+			[150,100,100,100,100,100,100,100,100,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,0,0,0,0,0,0,0,0,150]
+			,[150,150,150,150,150,150,150,150,150,150]
 		]
 	}
 ]

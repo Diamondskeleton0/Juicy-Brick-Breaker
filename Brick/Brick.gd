@@ -15,6 +15,7 @@ var powerup_prob = 0.1
 
 func _ready():
 	randomize()
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	position.x = new_position.x
 	position.y = -100
 	var tween = create_tween()
@@ -41,6 +42,9 @@ func _physics_process(_delta):
 		queue_free()
 
 func hit(_ball):
+	var brick_sound = get_node_or_null("/root/Game/Sound_Brick")
+	if brick_sound != null:
+		brick_sound.play()
 	die()
 
 func die():

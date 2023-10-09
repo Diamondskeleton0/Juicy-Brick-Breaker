@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpbcasdx7dl4x"]
+[gd_scene load_steps=4 format=3 uid="uid://dpbcasdx7dl4x"]
 
 [ext_resource type="Script" path="res://UI/End_Game.gd" id="1"]
 [ext_resource type="Theme" uid="uid://c5e7ut0k8ewe8" path="res://UI/UI.tres" id="1_bxsa8"]
+[ext_resource type="AudioStream" uid="uid://bjrqkbpa5pifr" path="res://title.wav" id="3_5a6dv"]
 
 [node name="End_Game" type="Control"]
 layout_mode = 3
@@ -20,3 +21,8 @@ anchor_bottom = 1.0
 text = "Thanks for playing!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_5a6dv")
+volume_db = 4.0
+autoplay = true

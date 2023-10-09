@@ -74,4 +74,10 @@ func distort():
 	$Images.scale = direction
 
 func die():
+	var die_sound = get_node_or_null("/root/Game/Sound_Die")
+	if die_sound != null:
+		die_sound.play()
+	var camera = get_node_or_null("/root/Game/Camera")
+	if camera != null:
+		camera.add_trauma(5.0 * speed_multiplier)
 	queue_free()
