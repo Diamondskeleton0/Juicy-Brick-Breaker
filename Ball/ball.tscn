@@ -31,7 +31,7 @@ shape = SubResource("1")
 [node name="Trail" type="CPUParticles2D" parent="."]
 texture_filter = 3
 emitting = false
-amount = 12
+amount = 24
 lifetime = 0.7
 randomness = 0.3
 texture = ExtResource("4_80htf")

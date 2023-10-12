@@ -5,6 +5,8 @@ var dying = false
 var score = 5000
 var tween
 
+var h_rotate = 0.0
+
 func _ready():
 	$AnimatedSprite2D.play("default")
 
@@ -31,6 +33,8 @@ func _physics_process(_delta):
 		queue_free()
 
 func hit(_ball):
+	if not Global.feverish:
+		Global.update_fever(10)
 	var brick_sound = get_node_or_null("/root/Game/Sound_Brick")
 	if brick_sound != null:
 		brick_sound.play()

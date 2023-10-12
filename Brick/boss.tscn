@@ -1,10 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bua431838uo87"]
+[gd_scene load_steps=13 format=3 uid="uid://bua431838uo87"]
 
 [ext_resource type="Script" path="res://Brick/boss.gd" id="1_k05cs"]
 [ext_resource type="Texture2D" uid="uid://d3br4fijxtt8g" path="res://Assets/boss1.png" id="1_u1rrx"]
 [ext_resource type="Texture2D" uid="uid://dr34bn1tosibf" path="res://Assets/boss2.png" id="2_cipo1"]
 [ext_resource type="Texture2D" uid="uid://dbqouuj5l7iqy" path="res://Assets/boss3.png" id="3_kusew"]
 [ext_resource type="Texture2D" uid="uid://ds0j7hgcw56gm" path="res://Assets/particle.png" id="5_ets3c"]
+
+[sub_resource type="Curve" id="Curve_rfso7"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.14118, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_qa2dn"]
+colors = PackedColorArray(1, 1, 1, 1, 0.415686, 0, 0.811765, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4welc"]
 animations = [{
@@ -37,6 +44,19 @@ colors = PackedColorArray(1, 0.192157, 0.192157, 1, 0.780392, 0.0745098, 0.99607
 
 [node name="Boss" type="CharacterBody2D"]
 script = ExtResource("1_k05cs")
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+texture_filter = 3
+amount = 15
+lifetime = 0.7
+texture = ExtResource("1_u1rrx")
+direction = Vector2(0, 0)
+spread = 0.0
+gravity = Vector2(0, 0)
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_rfso7")
+color_ramp = SubResource("Gradient_qa2dn")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 3
